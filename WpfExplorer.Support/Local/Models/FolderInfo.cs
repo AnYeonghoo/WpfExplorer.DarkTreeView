@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfExplorer.Forms.Local.Models
+namespace WpfExplorer.Support.Local.Models
 {
     public partial class FolderInfo : FileInfoBase
     {

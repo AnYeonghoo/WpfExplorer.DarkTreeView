@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfExplorer.Forms.Local.Helpers
+namespace WpfExplorer.Support.Local.Helpers
 {
     public class DirectoryManager
     {

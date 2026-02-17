@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using WpfExplorer.Support.Local.Models;
+
+namespace WpfExplorer.Main.UI.Units
+{
+    public class FolderTreeView : TreeView
+    {
+        public static readonly DependencyProperty SelectionCommandProperty =
+            DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(FolderTreeView));
+        protected override DependencyObject GetContainerForItemOverride()
+        {
+            return new FolderTreeItem();
+        }
+        public ICommand SelectionCommand
+        {
+            get => (ICommand)GetValue(SelectionCommandProperty);
+            set => SetValue(SelectionCommandProperty, value);
+        }
+        static FolderTreeView()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(FolderTreeView), new FrameworkPropertyMetadata(typeof(FolderTreeView)));
+        }
+        private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (SelectedItem is FolderInfo item)
+            {
+                SelectionCommand?.Execute(item);
+            }
+        }
+    }
+}

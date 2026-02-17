@@ -1,6 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using WpfExplorer.Forms.Local.Helpers;
+using WpfExplorer.Support.Local.Helpers;
 
 namespace WpfExplorer.Properties
 {
@@ -14,6 +14,7 @@ namespace WpfExplorer.Properties
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<DirectoryManager>();
+            containerRegistry.RegisterSingleton<FileService>();
         }
     }
 }

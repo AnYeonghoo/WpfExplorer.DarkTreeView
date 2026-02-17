@@ -2,24 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:based="clr-namespace:WpfExplorer.Support.UI.Units;assembly=WpfExplorer.Support"
                     xmlns:views="clr-namespace:WpfExplorer.Forms.UI.Views"
-                    xmlns:units="clr-namespace:WpfExplorer.Forms.UI.Units">
+                    xmlns:units="clr-namespace:WpfExplorer.Forms.UI.Units"
+                    xmlns:james="clr-namespace:Jamesnet.Wpf.Controls;assembly=Jamesnet.Wpf">
 
     <Style
         TargetType="{x:Type views:ExplorerWindow}"
         BasedOn="{StaticResource {x:Type based:DarkWindow}}">
         <Setter Property="Content">
             <Setter.Value>
-                <StackPanel>
-                    <TextBlock Text="{Binding}" Foreground="#FFFFFF"/>
-                    <TextBlock Text="{Binding DocumentDirectory}" Foreground="#FFFFFF"/>
-                    <TextBlock Text="{Binding DownloadDirectory}" Foreground="#FFFFFF"/>
-                    <TextBlock Text="{Binding PictureDirectory}" Foreground="#FFFFFF"/>
-                    <units:FolderTreeView>
-                        <units:FolderTreeItem Header="Hello"/>
-                        <units:FolderTreeItem Header="Hello2"/>
-                        <units:FolderTreeItem Header="Hell3o"/>
-                    </units:FolderTreeView>
-                </StackPanel>
+                <james:JamesRegion RegionName="MainRegion"/>
             </Setter.Value>
         </Setter>
     </Style>
